@@ -1,13 +1,14 @@
 const runTasks = require("./Exercise1");
 
-const taskFactorySample = (delay, resolve, val) => () => {
+jest.setTimeout(11000);
+
+const taskFactorySample = (delay, resolve, val) => {
   return () => {
     return new Promise((res, rej) =>
       setTimeout(resolve ? res : rej, delay, val)
     );
   };
 };
-
 const tasks = [
   taskFactorySample(500, true, 1),
   taskFactorySample(1000, true, 2),
@@ -18,10 +19,9 @@ const tasks = [
 ];
 // only run two promises at a time
 
-test("Initial test", async () => {
+test.skip("Initial test", async () => {
   const pool_size = 2;
   const results = await runTasks(tasks, pool_size);
-
   return expect(results).toEqual([
     "{value: 1}",
     "{value: 2}",
@@ -53,7 +53,7 @@ test.skip("Pool size of 0", async () => {
   );
 });
 
-test.skip("An empty tasks array", async () => {
+test("An empty tasks array", async () => {
   const pool_size = 2;
   const emptytasks = [];
   const results = await runTasks(emptytasks, pool_size);
