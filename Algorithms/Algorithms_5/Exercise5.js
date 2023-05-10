@@ -3,7 +3,7 @@
 function reverseBlocks(arr, blockSize) {
   //arr subdivision in blocks
   if (blockSize > arr.length) {
-    throw new Error();
+    throw new Error("The blocks can´t be larger than the array");
   }
   let blocks = [];
   for (let i = 0; i < arr.length; i += blockSize) {
@@ -19,9 +19,9 @@ function reverseBlocks(arr, blockSize) {
   //return a merged output
 }
 
-const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const blockSize = 3;
-reverseBlocks(arr, blockSize);
+//const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+//const blockSize = 3;
+//reverseBlocks(arr, blockSize);
 /**
  * Expected result:
  * [2,1,0,5,4,3,8,7,6,9]

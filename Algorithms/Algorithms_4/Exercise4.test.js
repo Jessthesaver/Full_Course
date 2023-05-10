@@ -71,3 +71,12 @@ test.skip("The arrays have multiple repeated elements", () => {
 
   expect(largeArr).toEqual([0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2]);
 });
+
+test("One of the arrays contains a non numerical character", () => {
+  const smallArr = [4, 5, 6, "a"];
+  const largeArr = [0, 1, 2, 3].concat(new Array(3));
+
+  expect(() => {
+    mergeArrays(largeArr, smallArr);
+  }).toThrow(new Error("The arrays must be composed of numerical characters"));
+});

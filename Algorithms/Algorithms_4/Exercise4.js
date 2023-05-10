@@ -1,9 +1,18 @@
 //Merge two sorted arrays where one has enough space at the end for the other (A6)
-const largeArray = [1, 3, 5, 7, 9].concat(new Array(5));
-const smallArray = [0, 2, 4, 6, 8];
-const largeArraySize = largeArray.length;
 
 function mergeArrays(arr1, arr2) {
+  arr1.forEach((element) => {
+    if (typeof element !== "number") {
+      throw new Error("The arrays must be composed of numerical characters");
+    }
+  });
+
+  arr2.forEach((element) => {
+    if (typeof element !== "number") {
+      throw new Error("The arrays must be composed of numerical characters");
+    }
+  });
+
   let index = 0;
   for (let i = 0; i < arr1.length; i++) {
     if (arr1[i] === undefined) {
@@ -22,11 +31,7 @@ function mergeArrays(arr1, arr2) {
     }
   }
   const sortedArray = arr1.filter((element) => element !== undefined);
-  //console.log(arr1);
-  //check if the 2 arrays are sorted
-  //check for the array to have space
-  //merge them
-  //sort the new array
+
   return sortedArray;
 }
 
