@@ -13,23 +13,24 @@ function mergeArrays(arr1, arr2) {
     }
   });
 
-  let index = 0;
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr1[i] === undefined) {
-      if (typeof arr2[index] === undefined) {
-        index++;
-      }
-      arr1[i] = arr2[index];
-      index++;
-    }
+  let arr1Index = arr1.length - 1;
+  let arr2Index = arr2.length - 1;
 
-    //sort the array again
-    let j = i;
-    while (j > 0 && arr1[j - 1] > arr1[j]) {
-      [arr1[j], arr1[j - 1]] = [arr1[j - 1], arr1[j]];
-      j--;
-    }
+  let diffIndex = arr1Index - arr2Index - 1;
+  let index = arr1Index;
+
+  while (index >= 0) {
+    arr1[diffIndex] > arr2[arr2Index]
+      ? (([arr1[index], arr1[diffIndex]] = [arr1[diffIndex], arr1[index]]),
+        diffIndex--)
+      : (([arr1[index], arr2[arr2Index]] = [arr2[arr2Index], arr1[index]]),
+        arr2Index--);
+
+    if (arr2Index < 0) break;
+
+    index--;
   }
+
   const sortedArray = arr1.filter((element) => element !== undefined);
 
   return sortedArray;
