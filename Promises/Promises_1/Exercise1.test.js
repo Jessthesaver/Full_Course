@@ -19,7 +19,7 @@ const tasks = [
 ];
 // only run two promises at a time
 
-test.skip("Initial test", async () => {
+test.skip("Test the basic functionality of the code", async () => {
   const pool_size = 2;
   const results = await runTasks(tasks, pool_size);
   return expect(results).toEqual([
@@ -29,6 +29,41 @@ test.skip("Initial test", async () => {
     "{value: 4}",
     "{error: error}",
     "{error: error}",
+  ]);
+});
+
+test.skip("Test time for the time to match", async () => {
+  const pool_size = 2;
+
+  const resultPromise = runBatches(tasks, pool_size);
+
+  await clock.tickAsync(500);
+  expect(fn).toHaveBeenCalledTimes(1);
+
+  await clock.tickAsync(500);
+  expect(fn).toHaveBeenCalledTimes(2);
+
+  await clock.tickAsync(2000);
+  expect(fn).toHaveBeenCalledTimes(3);
+
+  await clock.tickAsync(1000);
+  expect(fn).toHaveBeenCalledTimes(4);
+
+  await clock.tickAsync(1000);
+  expect(fn).toHaveBeenCalledTimes(5);
+
+  await clock.tickAsync(500);
+  expect(fn).toHaveBeenCalledTimes(6);
+
+  const result = await resultPromise;
+
+  expect(result).toStrictEqual([
+    { value: 1 },
+    { value: 2 },
+    { error: "error" },
+    { value: 4 },
+    { error: "error" },
+    { error: "error" },
   ]);
 });
 

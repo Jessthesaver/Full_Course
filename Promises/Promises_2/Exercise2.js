@@ -6,7 +6,6 @@ async function retryCall(req, retries, delayTime, increment, attempt = 0) {
   for (let i = 0; i < retries; i++) {
     try {
       result = await req();
-      console.log(result);
       return result;
     } catch (err) {
       if (increment) {
