@@ -1,32 +1,34 @@
-let reverse = (head) => {
-  let prev = null;
-  let current = head;
-  let next = null;
+const isPalindrome = function (linkedList) {
+  const head = linkedList.data;
+  if (!linkedList || !linkedList.next || !head) return true;
 
-  while (current !== null) {
-    next = current.next;
-    current.next = prev;
-    prev = current;
-    current = next;
+  let fast = linkedList;
+  let slow = linkedList;
+  let temp;
+
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
   }
 
-  head = prev;
-  return head;
-};
+  let prev = null;
+  while (slow) {
+    temp = slow.next;
+    slow.next = prev;
+    prev = slow;
+    slow = temp;
+  }
 
-const isPalindrome = function (linkedList) {
-  let current = linkedList;
-  let copy = JSON.parse(JSON.stringify(linkedList));
-  let reversed = reverse(copy);
-  reversed = reversed.next;
+  let left = linkedList;
+  let right = prev.next;
 
-  while (current) {
-    if (current.data !== reversed?.data) {
+  while (right) {
+    if (left.data !== right.data) {
       return false;
     }
 
-    current = current.next;
-    reversed = reversed?.next;
+    left = left.next;
+    right = right.next;
   }
 
   return true;

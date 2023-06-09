@@ -127,13 +127,32 @@ function checkTree(tree) {
 
   let internal = cleanTree.split(",");
 
+  if (
+    internal[internal.length - 1].includes("(") &&
+    !internal[internal.length - 1].includes(")")
+  ) {
+    return false;
+  }
+
   if (!internal[0]) {
     internal = internal.filter((p) => p);
 
-    if (internal.length >= 1) return false;
+    if (internal.length >= 1 || internal.length === 0) return false;
   }
 
-  if (internal.length > 1 && !internal[1] && !internal[2]) {
+  if (
+    internal.length > 1 &&
+    !internal[1] &&
+    internal[2] &&
+    (!cleanTree.includes("(") || !cleanTree.includes(")"))
+  ) {
+    return false;
+  } else if (
+    internal.length > 2 &&
+    !internal[1] &&
+    !internal[2] &&
+    internal[3]
+  ) {
     return false;
   } else if (internal.length > 2 && !internal[1] && !internal[2]) {
     return false;

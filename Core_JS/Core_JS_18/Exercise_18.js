@@ -4,6 +4,10 @@ function set(obj, path, value) {
   const lastProp = propertiesToAdd.pop();
 
   const pointer = propertiesToAdd.reduce((acc, current) => {
+    if (acc[current]) {
+      throw new Error(`You can't override properties`);
+    }
+
     if (!acc[current]) acc[current] = {};
 
     return acc[current];

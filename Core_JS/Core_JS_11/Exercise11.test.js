@@ -16,16 +16,23 @@ document.body.innerHTML = `
 `;
 
 test("initial test", () => {
-  const output = [];
+  const innerChild = [];
+  const nodeIds = [];
+  const parentElement = [];
   const nodeList = querySelectorAll("div.note < input.is-complete[checked]");
 
   for (const element of nodeList) {
-    output.push(element.innerHTML);
+    innerChild.push(element.innerHTML);
+    nodeIds.push(element.id);
+    parentElement.push(element.parentElement.id);
   }
+  console.log(parentElement);
 
-  expect(output).toEqual([
+  expect(innerChild).toEqual([
     '<input type="checkbox" class="is-complete" checked=""> ',
     '<input type="checkbox" class="is-complete" checked="">',
     '<input type="checkbox" class="is-complete" checked="">',
   ]);
+  expect(nodeIds).toEqual(["1", "3", "5"]);
+  expect(parentElement).toEqual(["parent", "parent", "parent"]);
 });

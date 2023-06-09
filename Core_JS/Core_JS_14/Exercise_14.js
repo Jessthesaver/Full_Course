@@ -1,6 +1,6 @@
 const maxAreaHistogram = (histogram) => {
   let maxArea = 0;
-
+  let minHeight;
   for (let i = 0; i < histogram.length; i++) {
     for (let j = i; j < histogram.length; j++) {
       minHeight = Math.min(histogram[i], histogram[j]);

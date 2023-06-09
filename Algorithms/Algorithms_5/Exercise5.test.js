@@ -9,7 +9,7 @@ test.skip("Reverse an array", () => {
   expect(output).toEqual([2, 1, 0, 5, 4, 3, 8, 7, 6, 9]);
 });
 
-test.skip("Blocks of the array size", () => {
+test.skip("Testing a block of the array size", () => {
   const testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const blockSize = 10;
 
@@ -18,7 +18,16 @@ test.skip("Blocks of the array size", () => {
   expect(output).toEqual([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
 });
 
-test("Blocks larger than the array size", () => {
+test("Testing a block of size 0", () => {
+  const testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const blockSize = 0;
+
+  expect(() => {
+    reverseBlocks(testArr, blockSize);
+  }).toThrow(new Error("The blocks can´t be of size 0"));
+});
+
+test.skip("test when the blocks size is larger than the array size", () => {
   const testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const blockSize = 15;
 

@@ -6,7 +6,7 @@ test("Basic test", () => {
   expect(output).toBe(6);
 });
 
-test("Small array", () => {
+test("Find balance at 2nd position in a lenght 3 array", () => {
   let array = [1, 1, 2];
   const output = findIndexElement(array);
   expect(output).toBe(1);

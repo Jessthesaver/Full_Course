@@ -1,23 +1,44 @@
 const isSymmetric = (tree) => {
   const arrayTree = convertToArray(tree);
 
-  const isSymmetic = traverseTree(arrayTree);
+  const symmetry = traverseTree(arrayTree);
 
-  return isSymmetic;
+  return symmetry;
 };
 
 function traverseTree(arrayTree) {
-  for (let level = 0; 2 ** (level + 1) - 1 <= arrayTree.length; level++) {
-    let row = arrayTree.slice(2 ** level - 1, 2 ** (level + 1) - 1);
+  const queue = [];
+  const [, left, right] = node;
 
-    const left = JSON.stringify(row);
+  queue.unshift(left);
+  queue.unshift(right);
 
-    const right = JSON.stringify(row.map((e, i, a) => a[a.length - 1 - i]));
+  while (queue.length > 0) {
+    let tempLeft = queue.pop();
+    let tempRight = queue.pop();
 
-    if (left !== right) {
+    if (!tempLeft && !tempRight) {
+      continue;
+    }
+
+    if ((!tempLeft && tempRight) || (tempLeft && !tempRight)) {
       return false;
     }
+
+    const [valFromLeft, leftFromLeft, rightFromLeft] = tempLeft;
+    const [valFromRight, leftFromRight, rightFromRight] = tempRight;
+
+    if (valFromLeft !== valFromRight) return false;
+
+    queue.unshift(leftFromLeft);
+    queue.unshift(rightFromRight);
+
+    queue.unshift(rightFromLeft);
+    queue.unshift(leftFromRight);
   }
+
+  if (queue.length > 0) return false;
+
   return true;
 }
 

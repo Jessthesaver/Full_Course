@@ -19,4 +19,6 @@ function querySelectorAll(selector) {
   return output;
 }
 
+const nodeList = querySelectorAll("div.note < input.is-complete[checked]");
+
 module.exports = { querySelectorAll };

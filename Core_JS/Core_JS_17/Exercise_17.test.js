@@ -1,7 +1,7 @@
 const { createLinkedList } = require("../Core_JS_16/createList");
 const isPalindrome = require("./Exercise_17");
 
-test("Basic test", () => {
+test("Basic test to prove the algorithm functionality", () => {
   const array = [1, 6, 4, 5, 4, 6, 1];
   const linkedList = createLinkedList(array);
 
@@ -9,7 +9,7 @@ test("Basic test", () => {
   expect(isPalin).toBe(true);
 });
 
-test("Short palindrome", () => {
+test("Testing a short palindrome of even length", () => {
   const array = [1, 2, 2, 1];
 
   const linkedList = createLinkedList(array);
@@ -18,7 +18,7 @@ test("Short palindrome", () => {
   expect(isPalin).toBe(true);
 });
 
-test("Not a palindrome", () => {
+test("test when the given array is not a palindrome", () => {
   const array = [1, 2, 3, 1];
 
   const linkedList = createLinkedList(array);

@@ -5,6 +5,9 @@ function reverseBlocks(arr, blockSize) {
   if (blockSize > arr.length) {
     throw new Error("The blocks can´t be larger than the array");
   }
+  if (blockSize == 0) {
+    throw new Error("The blocks can´t be of size 0");
+  }
   let blocks = [];
   for (let i = 0; i < arr.length; i += blockSize) {
     blocks.push(arr.slice(i, i + blockSize));
