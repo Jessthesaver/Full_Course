@@ -145,3 +145,19 @@ input {
 input:focus {
   outline: none;
 }
+
+@media (max-width: 740px) {
+  button {
+    right: -10%;
+  }
+
+  .form-field::before {
+    font: calc(0.5 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
+  }
+}
+
+@media (max-width: 500px) {
+  .form-field::before {
+    font: calc(0.6 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
+  }
+}
