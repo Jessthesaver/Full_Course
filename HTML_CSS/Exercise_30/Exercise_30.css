@@ -18,7 +18,7 @@ body {
   display: flex;
   align-items: center;
   inset: 0px 15vw 0px 0px;
-  background-color: rgba(199, 196, 196, 0.9);
+  background-color: rgb(176, 176, 176, 0.75);
   padding: calc(0.05 * var(--buttonWidth));
   margin: calc(0.1 * var(--buttonWidth));
   width: var(--buttonWidth);
@@ -28,27 +28,30 @@ body {
   color: rgba(85, 85, 85, 255);
   border-radius: 9px;
   box-sizing: border-box;
+  font-size: xx-large;
   font: 900 var(--font) Verdana, Geneva, Tahoma, sans-serif;
   outline-offset: 0.85rem;
   outline: 2px solid rgb(19, 18, 19);
-  border: 2px solid rgb(173, 169, 169);
+  border: 2px solid rgba(175, 175, 175, 0.85);
   /*offset-x | offset-y | blur-radius | spread-radius | color*/
-  box-shadow: 0 0 0 calc(0.11 * var(--buttonHeight)) rgba(0, 0, 0, 0.3),
+  box-shadow: 0 0 0 calc(0.11 * var(--buttonHeight)) rgba(161, 161, 161, 0.404),
     calc(0.03 * var(--buttonHeight)) calc(0.03 * var(--buttonHeight))
       calc(0.05 * var(--buttonHeight)) calc(0.01 * var(--buttonHeight))
       rgba(0, 0, 0, 0.45),
-    inset 0 calc(0.46 * var(--buttonHeight)) 0 0 rgba(215, 213, 213, 0.966);
+    inset 0 calc(0.46 * var(--buttonHeight)) 0 0 rgb(215, 215, 215);
   justify-content: center;
 }
 
 .fancy-button::before {
   content: "★";
+  font-size: xx-large;
   margin: 10px;
   color: rgba(122, 116, 122, 0.9);
 }
 
 .fancy-button::after {
   content: "★";
+  font-size: xx-large;
   margin: 5px;
   color: rgba(122, 116, 122, 0.9);
 }
