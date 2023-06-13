@@ -157,7 +157,7 @@ footer {
   filter: grayscale(100%);
 }
 
-@media (min-width: 200px) and (max-width: 749px) {
+@media (min-width: 200px) and (max-width: 799px) {
   .navbar {
     display: flex;
     flex-direction: column-reverse;
@@ -389,7 +389,7 @@ footer {
   }
 }
 
-@media (min-width: 750px) and (max-width: 1023px) {
+@media (min-width: 800px) and (max-width: 1023px) {
   .navbar {
     display: flex;
     flex-direction: row;
@@ -877,7 +877,7 @@ footer {
   }
 
   footer {
-    width: 1500px;
+    width: 100%;
   }
 
   .footer-info ul {
