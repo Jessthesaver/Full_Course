@@ -1,0 +1,35 @@
+{
+  "galleryId": "1",
+  "images": [
+    {
+      "width": 706,
+      "height": 903,
+      "src": "https://loremflickr.com/706/903/cats"
+    },
+    {
+      "width": 673,
+      "height": 843,
+      "src": "https://loremflickr.com/673/843/cats"
+    },
+    {
+      "width": 664,
+      "height": 898,
+      "src": "https://loremflickr.com/664/898/cats"
+    },
+    {
+      "width": 644,
+      "height": 956,
+      "src": "https://loremflickr.com/644/956/cats"
+    },
+    {
+      "width": 579,
+      "height": 309,
+      "src": "https://loremflickr.com/579/309/cats"
+    },
+    {
+      "width": 651,
+      "height": 850,
+      "src": "https://loremflickr.com/651/850/cats"
+    }
+  ]
+}
