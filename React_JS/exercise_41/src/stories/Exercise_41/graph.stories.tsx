@@ -1,11 +1,14 @@
 import Graph from "../../components/graph";
+import { Meta, StoryObj } from "@storybook/react";
 
 export default {
   title: "Graph",
   component: Graph,
-};
+} as Meta<typeof Graph>;
 
-export const GraphTemplate = {
+type Story = StoryObj<typeof Graph>;
+
+export const GraphTemplate: Story = {
   args: {
     caption: "",
     data: [],
@@ -13,7 +16,7 @@ export const GraphTemplate = {
   },
 };
 
-export const SimpleLineChart = {
+export const SimpleLineChart: Story = {
   ...GraphTemplate,
   args: {
     caption: "Simple data",
@@ -27,7 +30,7 @@ const randomData = Array.from({ length: 100 }, () =>
 );
 const label = randomData.map((_, index) => String(index + 1));
 
-export const FullPoints = {
+export const FullPoints: Story = {
   ...GraphTemplate,
   args: {
     caption: "Full random data",

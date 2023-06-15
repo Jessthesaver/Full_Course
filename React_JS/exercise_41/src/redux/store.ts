@@ -8,7 +8,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const middlewares = [sagaMiddleware];
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     data: dataReducer,
   },
@@ -21,4 +21,5 @@ sagaMiddleware.run(rootSaga);
 
 setupListeners(store.dispatch);
 
-export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

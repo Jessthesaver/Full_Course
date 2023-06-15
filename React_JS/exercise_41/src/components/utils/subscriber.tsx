@@ -2,7 +2,7 @@ import { faker } from "@faker-js/faker";
 import { END, eventChannel } from "redux-saga";
 
 const subscriber = () => {
-  return eventChannel((emitter) => {
+  return eventChannel((emitter: any) => {
     const s = 110;
 
     let count = 0;

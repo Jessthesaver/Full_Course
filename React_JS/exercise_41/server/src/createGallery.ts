@@ -1,12 +1,27 @@
 import { faker } from "@faker-js/faker";
 import { writeFileSync } from "fs";
 
-function getRandomNumber(max, min) {
+type Image = {
+  width: number;
+  height: number;
+  src: string;
+};
+
+type GalleryCollection = {
+  galleryId: string;
+  images: Image[];
+};
+
+function getRandomNumber(max: number, min: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function createImageList(totalImages, max = 250 * 2, min = 250) {
-  const imageList = [];
+function createImageList(
+  totalImages: number,
+  max = 250 * 2,
+  min = 250
+): Image[] {
+  const imageList: Image[] = [];
 
   for (let i = 0; i < totalImages; i++) {
     const width = getRandomNumber(max, min);
@@ -23,16 +38,17 @@ function createImageList(totalImages, max = 250 * 2, min = 250) {
   return imageList;
 }
 
-function createGallery(totalImages, galleryId = "1") {
-  // const galleryId = Date.now();
+function createGallery(totalImages: number, galleryId = "1") {
   return {
     galleryId,
     images: createImageList(totalImages),
   };
 }
 
-function fakeDB(totalGalleries) {
-  const galleries = [];
+function fakeDB(totalGalleries: number): {
+  galleryCollection: GalleryCollection[];
+} {
+  const galleries: GalleryCollection[] = [];
 
   for (let i = 0; i < totalGalleries; i++) {
     const totalImages = getRandomNumber(5, 10);
@@ -45,7 +61,7 @@ function fakeDB(totalGalleries) {
   };
 }
 
-function createJSON(fileName, totalImages) {
+function createJSON(fileName: string, totalImages: number): void {
   writeFileSync(fileName, JSON.stringify(createGallery(totalImages)));
 }
 

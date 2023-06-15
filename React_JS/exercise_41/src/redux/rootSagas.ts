@@ -2,21 +2,21 @@ import { call, put, select, take } from "redux-saga/effects";
 import { initData, setData } from "./slices/dataSlices";
 import subscriber from "../components/utils/subscriber";
 
-export default function* rootSaga() {
+export default function* rootSaga(): Generator<any> {
   const dataSet = "1";
   let counter = 1;
 
-  const channel = yield call(subscriber);
+  const channel: any = yield call(subscriber);
 
   yield put(initData({ dataSet }));
 
   while (true) {
     const incomingData = yield take(channel);
-    let newLabel;
+    let newLabel: string;
 
     newLabel = `${counter}`;
 
-    const oldData = yield select((state) => state.data[dataSet]);
+    const oldData: any = yield select((state) => state.data[dataSet]);
 
     let newData = {
       label: [...oldData.label, newLabel],

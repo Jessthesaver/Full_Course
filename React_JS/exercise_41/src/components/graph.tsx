@@ -11,7 +11,13 @@ import {
 import { Line } from "react-chartjs-2";
 import PropTypes from "prop-types";
 
-const Graph = ({ data, caption, labels }) => {
+type GraphProps = {
+  data: any[];
+  caption: string;
+  labels: string[];
+};
+
+const Graph = ({ data, caption, labels }: GraphProps) => {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -27,7 +33,7 @@ const Graph = ({ data, caption, labels }) => {
   const bcolor = "rgb(255, 99, 132)";
   const bgcolor = "rgba(255, 99, 132, 0.5)";
 
-  const options = {
+  const options: Object = {
     responsive: true,
     interaction: {
       mode: "index",

@@ -1,8 +1,13 @@
 import { useSelector } from "react-redux";
 import Graph from "./graph";
 
-const Data = ({ dataSet, caption }) => {
-  const data = useSelector((state) => state.data[dataSet]);
+type DataProps = {
+  dataSet: string;
+  caption: string;
+};
+
+const Data = ({ dataSet, caption }: DataProps) => {
+  const data = useSelector((state: any) => state.data[dataSet]);
 
   return (
     <>

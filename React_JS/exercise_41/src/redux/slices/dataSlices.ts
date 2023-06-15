@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+type DataSet = {
+  [id: number]: { label: string[]; y: number[] };
+};
+
+const initialState: DataSet = {};
 
 const dataSlice = createSlice({
   name: "data",
