@@ -17,7 +17,7 @@ describe("Line chart tests", () => {
         moveTo: jest.fn(),
         lineTo: jest.fn(),
         stroke: jest.fn(),
-      });
+      } as any);
 
     render(<Graph data={data} caption="Caption" labels={labels} />);
 
