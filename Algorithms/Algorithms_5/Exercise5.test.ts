@@ -1,6 +1,6 @@
-const reverseBlocks = require("./Exercise5");
+import reverseBlocks from "./Exercise5";
 
-test.skip("Reverse an array", () => {
+test("Reverse an array", () => {
   const testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const blockSize = 3;
 
@@ -9,7 +9,7 @@ test.skip("Reverse an array", () => {
   expect(output).toEqual([2, 1, 0, 5, 4, 3, 8, 7, 6, 9]);
 });
 
-test.skip("Testing a block of the array size", () => {
+test("Testing a block of the array size", () => {
   const testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const blockSize = 10;
 
@@ -27,7 +27,7 @@ test("Testing a block of size 0", () => {
   }).toThrow(new Error("The blocks can´t be of size 0"));
 });
 
-test.skip("test when the blocks size is larger than the array size", () => {
+test("test when the blocks size is larger than the array size", () => {
   const testArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const blockSize = 15;
 
