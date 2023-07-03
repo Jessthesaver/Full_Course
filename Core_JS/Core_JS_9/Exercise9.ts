@@ -1,5 +1,5 @@
-function flattenArrayRecursive(input) {
-  let output = [];
+export function flattenArrayRecursive(input: any[]) {
+  let output = [] as any[];
   for (let element of input) {
     if (!Array.isArray(element)) {
       output.push(element);
@@ -10,7 +10,7 @@ function flattenArrayRecursive(input) {
   return output;
 }
 
-function flattenArrayImperative(input) {
+export function flattenArrayImperative(input: any[]) {
   let output = [];
   let temp = [...input];
   while (temp.length > 0) {
@@ -23,8 +23,3 @@ function flattenArrayImperative(input) {
   }
   return output;
 }
-
-module.exports = {
-  flattenArrayRecursive,
-  flattenArrayImperative,
-};

@@ -15,11 +15,11 @@ const oldObj = {
   },
 };
 
-function flattenImp(oldObj, parentName) {
+export function flattenImp(oldObj: any, parentName: string) {
   /* Your implementation goes here */
   let outputObj = {};
   for (let key in oldObj) {
-    const newKey = parentName ? `${parentName}_${key}` : key;
+    const newKey = parentName ? `${parentName}_${key}` : (key as string);
 
     if (
       typeof oldObj[key] === "object" &&
@@ -34,9 +34,9 @@ function flattenImp(oldObj, parentName) {
   return outputObj;
 }
 
-function flattenFunc(obj, parentName = "") {
-  const isObject = (instance) => typeof instance === "object";
-  const isArray = (instance) => Array.isArray(instance);
+export function flattenFunc(obj: any, parentName = "") {
+  const isObject = (instance: string) => typeof instance === "object";
+  const isArray = (instance: string) => Array.isArray(instance);
 
   const newObj = Object.keys(obj).reduce((acc, i) => {
     const prefixKey = parentName.length ? `${parentName}_` : ``;
@@ -49,5 +49,3 @@ function flattenFunc(obj, parentName = "") {
   }, {});
   return newObj;
 }
-
-module.exports = { flattenImp, flattenFunc };

@@ -1,6 +1,6 @@
-const printTree = require("./Exercise10");
+import printTree from "./Exercise10";
 
-test.skip("Infix test drive ", () => {
+test("Infix test drive ", () => {
   const bTree = "(A,(B,(D),(E)),(C,(F,(H),(I)),(G,,(J))))";
 
   expect(printTree(bTree)).toStrictEqual([

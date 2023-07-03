@@ -1,17 +1,4 @@
-const { flattenImp, flattenFunc } = require("./Exercise8");
-
-/**
- *  expected output:
- *  {
- *    oldObj_name: 'Sara',
- *    oldObj_gender: 'Apache Attack Helicopter',
- *    oldObj_address_location_city: 'SF',
- *    oldObj_address_location_state: 'CA',
- *    oldObj_address_preferredLocation_state: 'SF',
- *    oldObj_address_preferredLocation_city: ['CA', 'MN'],
- *    oldObj_address_other: undefined
- *  }
- */
+import { flattenImp, flattenFunc } from "./Exercise8";
 
 const oldObj = {
   name: "Sara",
@@ -29,7 +16,7 @@ const oldObj = {
   },
 };
 
-test.skip("Test drive of the imperative algorithm", () => {
+test("Test drive of the imperative algorithm", () => {
   const oldObj = {
     name: "Sara",
     gender: "Apache Attack Helicopter",
@@ -60,7 +47,7 @@ test.skip("Test drive of the imperative algorithm", () => {
   expect(output).toEqual(expectation);
 });
 
-test.skip("Test drive of the functionality algorithm", () => {
+test("Test drive of the functionality algorithm", () => {
   const oldObj = {
     name: "Sara",
     gender: "Apache Attack Helicopter",
@@ -91,7 +78,7 @@ test.skip("Test drive of the functionality algorithm", () => {
   expect(output).toEqual(expectation);
 });
 
-test.skip("A four levels object", () => {
+test("A four levels object", () => {
   const oldObj = {
     name: "Sara",
     gender: "Apache Attack Helicopter",
@@ -126,7 +113,7 @@ test.skip("A four levels object", () => {
   expect(output).toEqual(expectation);
 });
 
-test.skip("An already flat object", () => {
+test("An already flat object", () => {
   const oldObj = {
     name: "Sara",
     gender: "Apache Attack Helicopter",

@@ -1,17 +1,4 @@
-//Find the largest run of at most two distinct numbers (D9)
-
-const input = "1212223311212223";
-/**
- * Example 1:
- *  Input 1212223311212223
- *  Output 1121222
- *
- * Example 2:
- *  Input 111
- *  Output 111
- */
-
-function longestRunOfTwoNumbers(input) {
+export default function longestRunOfTwoNumbers(input: string) {
   if (/^\d+$/.test(input) !== true) {
     throw new Error("The string contains non numerical characters");
   }
@@ -22,7 +9,7 @@ function longestRunOfTwoNumbers(input) {
   let i = 0;
   let out = input[0];
 
-  let tempStart;
+  let tempStart = 0 as number;
   let tempi = 0;
 
   let counterKey = 1;
@@ -38,7 +25,7 @@ function longestRunOfTwoNumbers(input) {
     }
 
     if (counterKey < 3) {
-      tempStart = start;
+      tempStart = start as number;
       tempi = i;
     }
     i++;
@@ -52,5 +39,3 @@ function longestRunOfTwoNumbers(input) {
 
   return out;
 }
-
-module.exports = longestRunOfTwoNumbers;
