@@ -1,4 +1,4 @@
-const findIndexElement = (array) => {
+export default function findIndexElement(array: number[]) {
   let rightSum = 0;
   let leftSum = 0;
   let rightIndex = array.length - 1;
@@ -22,6 +22,4 @@ const findIndexElement = (array) => {
     }
   }
   return -1;
-};
-
-module.exports = findIndexElement;
+}

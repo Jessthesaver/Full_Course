@@ -1,5 +1,5 @@
-const detectCycle = require("./E16");
-const { createLinkedList } = require("./createList");
+import detectCycle from "./Exercise_16";
+import createLinkedList from "./createList";
 
 test("Basic test", () => {
   const linkedList = createLinkedList([1, 2, 2, 3, 3, 6, 7, 2, 1], 3);

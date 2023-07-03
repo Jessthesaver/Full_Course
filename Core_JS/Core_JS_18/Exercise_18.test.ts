@@ -1,6 +1,6 @@
-const set = require("./Exercise_18");
+import set from "./Exercise_18";
 
-test.skip("Test of the algorithm initial functionality", () => {
+test("algorithm initial functionality, a simple success case", () => {
   const obj = {
     name: "Saver",
     age: 27,
@@ -23,7 +23,7 @@ test.skip("Test of the algorithm initial functionality", () => {
   });
 });
 
-test("Test a property value triying to be overriden", () => {
+test("a property value triying to be overriden, should fail", () => {
   const obj = {
     name: "Saver",
     age: 27,
@@ -34,7 +34,7 @@ test("Test a property value triying to be overriden", () => {
   );
 });
 
-test("Test of the algorithm functionality for more than one adition", () => {
+test("the algorithm functionality for more than one adition, should success", () => {
   const obj = {
     name: "Saver",
     age: 27,

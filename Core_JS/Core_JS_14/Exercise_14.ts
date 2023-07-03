@@ -1,4 +1,4 @@
-const maxAreaHistogram = (histogram) => {
+function maxAreaHistogram(histogram: any[]) {
   let maxArea = 0;
   let minHeight;
   for (let i = 0; i < histogram.length; i++) {
@@ -12,9 +12,9 @@ const maxAreaHistogram = (histogram) => {
     }
   }
   return maxArea;
-};
+}
 
-const maxRectangle = (matrix) => {
+export default function maxRectangle(matrix: any[]) {
   let maxArea = 0;
 
   if (matrix.length === 0) {
@@ -24,7 +24,7 @@ const maxRectangle = (matrix) => {
   let histogram = [...matrix[0]].map((p) => 0);
 
   for (let row of matrix) {
-    row.map((element, index) => {
+    row.map((element: number, index: number) => {
       if (element === 0) {
         histogram[index] = 0;
       } else {
@@ -35,6 +35,4 @@ const maxRectangle = (matrix) => {
   }
 
   return maxArea;
-};
-
-module.exports = maxRectangle;
+}

@@ -1,4 +1,4 @@
-const detectCycle = (cycle) => {
+export default function detectCycle(cycle: any) {
   if (!cycle || !cycle.next || !cycle.next.next) {
     return false;
   }
@@ -26,6 +26,4 @@ const detectCycle = (cycle) => {
   }
 
   return true;
-};
-
-module.exports = detectCycle;
+}

@@ -1,4 +1,4 @@
-const isPalindrome = function (linkedList) {
+export default function isPalindrome(linkedList: any) {
   const head = linkedList.data;
   if (!linkedList || !linkedList.next || !head) return true;
 
@@ -32,6 +32,4 @@ const isPalindrome = function (linkedList) {
   }
 
   return true;
-};
-
-module.exports = isPalindrome;
+}

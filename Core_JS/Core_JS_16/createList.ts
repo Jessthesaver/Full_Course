@@ -1,11 +1,16 @@
 class Node {
-  constructor(val) {
+  data: any;
+  next: Node | null;
+  constructor(val: any) {
     this.data = val;
     this.next = null;
   }
 }
 
-const createLinkedList = (array, loopPosition = null) => {
+export default function createLinkedList(
+  array: number[],
+  loopPosition: number | null = null
+) {
   let linkedList = new Node(array[0]);
 
   let temp = linkedList;
@@ -24,14 +29,11 @@ const createLinkedList = (array, loopPosition = null) => {
     if (loopPosition === i) {
       loop = temp;
     }
-    // i++;
   }
 
   if (loopPosition) {
-    temp.next = loop;
+    temp.next = loop as Node;
   }
 
   return linkedList;
-};
-
-module.exports = { createLinkedList };
+}
