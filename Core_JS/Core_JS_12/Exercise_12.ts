@@ -1,21 +1,21 @@
-const isSymmetric = (tree) => {
+export default function isSymmetric(tree: string) {
   const arrayTree = convertToArray(tree);
 
   const symmetry = traverseTree(arrayTree);
 
   return symmetry;
-};
+}
 
-function traverseTree(arrayTree) {
+function traverseTree(arrayTree: any[]) {
   const queue = [];
-  const [, left, right] = node;
+  const [, left, right] = arrayTree;
 
   queue.unshift(left);
   queue.unshift(right);
 
   while (queue.length > 0) {
-    let tempLeft = queue.pop();
-    let tempRight = queue.pop();
+    let tempLeft = queue.pop() as any;
+    let tempRight = queue.pop() as any;
 
     if (!tempLeft && !tempRight) {
       continue;
@@ -42,7 +42,7 @@ function traverseTree(arrayTree) {
   return true;
 }
 
-const convertToArray = (tree) => {
+function convertToArray(tree: string) {
   let temp = "";
   let isOpen = true;
 
@@ -68,6 +68,4 @@ const convertToArray = (tree) => {
   const arrayTree = eval(temp);
 
   return arrayTree;
-};
-
-module.exports = isSymmetric;
+}

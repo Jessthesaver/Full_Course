@@ -1,6 +1,6 @@
 /** @jest-environment jsdom */
 
-const { querySelectorAll } = require("./Exercise11");
+import querySelectorAll from "./Exercise11";
 
 document.body.innerHTML = `
     <section>
@@ -24,7 +24,7 @@ test("initial test", () => {
   for (const element of nodeList) {
     innerChild.push(element.innerHTML);
     nodeIds.push(element.id);
-    parentElement.push(element.parentElement.id);
+    parentElement.push(element.parentElement?.id);
   }
   console.log(parentElement);
 

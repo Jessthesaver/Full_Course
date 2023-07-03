@@ -1,6 +1,6 @@
-const isSameLevel = (tree, n1, n2) => {
+export default function isSameLevel(tree: string, n1: string, n2: string) {
   let level = 0;
-  const array = [];
+  const array = [] as any[];
 
   if (!tree) {
     return "Invalid Tree structure";
@@ -25,9 +25,15 @@ const isSameLevel = (tree, n1, n2) => {
   } else if (sameLevel[0] !== sameLevel[1]) {
     return "Numbers not found at the same level";
   }
-};
+}
 
-const prefixOrder = (tree, array, level, n1, n2) => {
+function prefixOrder(
+  tree: any[],
+  array: any[],
+  level: number,
+  n1: string,
+  n2: string
+) {
   const [root, left, right] = tree;
   // let leftN1, rightN1, leftN2, rightN2;
 
@@ -44,9 +50,9 @@ const prefixOrder = (tree, array, level, n1, n2) => {
     }
   }
   return array;
-};
+}
 
-const convertToArray = (tree) => {
+function convertToArray(tree: string) {
   let temp = "";
   let isOpen = true;
 
@@ -72,6 +78,4 @@ const convertToArray = (tree) => {
   const arrayTree = eval(temp);
 
   return arrayTree;
-};
-
-module.exports = isSameLevel;
+}
