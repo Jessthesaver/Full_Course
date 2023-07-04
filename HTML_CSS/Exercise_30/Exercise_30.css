@@ -34,10 +34,10 @@ body {
   outline: 2px solid rgb(19, 18, 19);
   border: 2px solid rgba(175, 175, 175, 0.85);
   /*offset-x | offset-y | blur-radius | spread-radius | color*/
-  box-shadow: 0 0 0 calc(0.11 * var(--buttonHeight)) rgba(161, 161, 161, 0.404),
+  box-shadow: 0 0 0 calc(0.11 * var(--buttonHeight)) rgba(151, 151, 151, 0.404),
     calc(0.03 * var(--buttonHeight)) calc(0.03 * var(--buttonHeight))
       calc(0.05 * var(--buttonHeight)) calc(0.01 * var(--buttonHeight))
-      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.55),
     inset 0 calc(0.46 * var(--buttonHeight)) 0 0 rgb(215, 215, 215);
   justify-content: center;
 }
@@ -144,6 +144,22 @@ input {
 
 input:focus {
   outline: none;
+}
+
+@media (min-width: 1140px) and (max-width: 1435px) {
+  form {
+    display: flex;
+    flex-direction: row;
+    margin: 25px;
+    width: 550px;
+    height: 200px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: calc(0.05 * var(--buttonWidth));
+  }
+  .form-field::before {
+    font: calc(0.3 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
+  }
 }
 
 @media (max-width: 740px) {
