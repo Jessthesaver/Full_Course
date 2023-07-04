@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-const readline = require("readline");
-const colors = require("colors/safe");
+import readline from "readline";
+import colors from "colors/safe";
 
-const computePrimes = (N) => {
+export function computePrimes(N: number) {
   progressBar(0);
 
   let progress = 0;
@@ -34,9 +34,9 @@ const computePrimes = (N) => {
   process.stdout.write(primeStr);
 
   return primes;
-};
+}
 
-const isPrime = (n) => {
+export function isPrime(n: number) {
   if (n === 1 || n === 0) return false;
 
   const max = Math.sqrt(n);
@@ -48,12 +48,12 @@ const isPrime = (n) => {
   }
 
   return true;
-};
+}
 
-const progressBar = (progress, primes = "") => {
+export function progressBar(progress: number) {
   const size = 100;
 
-  let totalProgress = parseInt(progress * size);
+  let totalProgress = progress * size;
 
   const empty = "░".repeat(size - totalProgress);
 
@@ -66,15 +66,10 @@ const progressBar = (progress, primes = "") => {
       colors.red(`${empty}`) +
       colors.blue(`${totalProgress}%`)
   );
-};
+}
 
 progressBar(1);
 
-const input = process.argv[2];
-computePrimes(input);
+const input = parseInt(process.argv[2]);
 
-module.exports = {
-  computePrimes,
-  isPrime,
-  progressBar,
-};
+computePrimes(input);

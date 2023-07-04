@@ -1,6 +1,4 @@
 (function (global) {
-  let originalSetTimeout = global.setTimeout;
-
   let root = document.getElementById("results");
   const result = (text, pass) => {
     const el = document.createElement("li");
@@ -23,10 +21,6 @@
     const [callback, delay, caption, pass] = args;
 
     let temp = root;
-
-    await new Promise((resolve) => {
-      return originalSetTimeout(resolve, delay);
-    });
 
     root = temp;
 
