@@ -18,8 +18,8 @@ function getRandomNumber(max: number, min: number) {
 
 function createImageList(
   totalImages: number,
-  max = 250 * 2,
-  min = 250
+  max: number = 250 * 2,
+  min: number = 250
 ): Image[] {
   const imageList: Image[] = [];
 
@@ -38,7 +38,8 @@ function createImageList(
   return imageList;
 }
 
-function createGallery(totalImages: number, galleryId = "1") {
+function createGallery(totalImages: number, galleryId: string = "1") {
+  // const galleryId = Date.now();
   return {
     galleryId,
     images: createImageList(totalImages),

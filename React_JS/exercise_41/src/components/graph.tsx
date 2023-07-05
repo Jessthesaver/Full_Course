@@ -17,7 +17,7 @@ type GraphProps = {
   labels: string[];
 };
 
-const Graph = ({ data, caption, labels }: GraphProps) => {
+export default function Graph({ data, caption, labels }: GraphProps) {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -76,12 +76,10 @@ const Graph = ({ data, caption, labels }: GraphProps) => {
       <Line options={options} data={dataInfo} />
     </>
   );
-};
+}
 
 Graph.propTypes = {
   caption: PropTypes.string,
   data: PropTypes.array,
   labels: PropTypes.array,
 };
-
-export default Graph;

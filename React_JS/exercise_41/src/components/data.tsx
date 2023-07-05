@@ -6,7 +6,7 @@ type DataProps = {
   caption: string;
 };
 
-const Data = ({ dataSet, caption }: DataProps) => {
+export default function Data({ dataSet, caption }: DataProps) {
   const data = useSelector((state: any) => state.data[dataSet]);
 
   return (
@@ -14,6 +14,4 @@ const Data = ({ dataSet, caption }: DataProps) => {
       <Graph data={data.y} labels={data.label} caption={caption} />
     </>
   );
-};
-
-export default Data;
+}

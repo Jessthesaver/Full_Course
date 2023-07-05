@@ -1,7 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { END, eventChannel } from "redux-saga";
 
-const subscriber = () => {
+export default function subscriber() {
   return eventChannel((emitter: any) => {
     const s = 110;
 
@@ -20,6 +20,4 @@ const subscriber = () => {
       clearInterval(iv);
     };
   });
-};
-
-export default subscriber;
+}

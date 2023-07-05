@@ -27,7 +27,7 @@ app.get("/api/gallery/:id", (req, res) => {
 
     const imagesPerPage = Math.ceil(total / count);
 
-    const slicedImages = new Array(imagesPerPage)
+    const slicedImages = new Array<number>(imagesPerPage)
       .fill(0)
       .map((_, i) => gallery.images.slice(i * count, i * count + count));
 
