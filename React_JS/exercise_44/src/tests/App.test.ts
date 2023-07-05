@@ -8,7 +8,7 @@ describe("useIndexDB tests", () => {
   beforeEach(() => {
     clear();
   });
-  test("Basic test", async () => {
+  test("The initial data should be successfully be stored", async () => {
     const initialData = {
       prop1: 134,
       prop2: "John",
@@ -21,7 +21,7 @@ describe("useIndexDB tests", () => {
     expect(item).toStrictEqual(initialData);
   });
 
-  test("Modifing data", async () => {
+  test("Modify the data should show the updated data", async () => {
     const initialData = {
       prop1: 134,
       prop2: "John",
@@ -44,12 +44,12 @@ describe("useIndexDB tests", () => {
   });
 });
 
-describe("Local Storage tests", () => {
+describe("Local Storage correct behavior", () => {
   beforeEach(() => {
     localStorage.clear();
   });
 
-  test("Setting a new data to store and changing something else", () => {
+  test("Setting a new data to store and changing something else, should successfully change the language config", () => {
     const someConfig = {
       username: "Jonh",
       lang: "en",
@@ -73,12 +73,12 @@ describe("Local Storage tests", () => {
   });
 });
 
-describe("Tests for the session storage", () => {
+describe("Check the session storage correct behavior", () => {
   beforeEach(() => {
     sessionStorage.clear();
   });
 
-  test("Setting a new data to store and changing something else", () => {
+  test("Setting a new data to store and changing something else, should successfully change the configuration", () => {
     const someConfig = {
       username: "Jonh",
       lang: "en",

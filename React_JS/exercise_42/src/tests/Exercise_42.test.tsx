@@ -11,7 +11,7 @@ function TestComponent() {
   );
 }
 
-test("Basic test", async () => {
+test("Check the component correctly rendering", async () => {
   render(<TestComponent />);
 
   const loading = screen.getAllByText("Loading...");
