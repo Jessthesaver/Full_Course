@@ -389,7 +389,7 @@ footer {
   }
 }
 
-@media (min-width: 800px) and (max-width: 1023px) {
+@media (min-width: 800px) and (max-width: 1399px) {
   .navbar {
     display: flex;
     flex-direction: row;
@@ -593,7 +593,7 @@ footer {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
   .root {
     display: grid;
     grid-template-columns: 250px auto;
@@ -640,7 +640,7 @@ footer {
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     padding: 5px;
@@ -681,7 +681,7 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     overflow: hidden;
     justify-content: center;
     padding: 5px;
