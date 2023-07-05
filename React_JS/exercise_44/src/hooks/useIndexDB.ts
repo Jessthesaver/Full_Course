@@ -12,7 +12,7 @@ const useIndexDB = (key: string, initVal: any) => {
           setValue(saved);
         }
       } catch (e: any) {
-        console.error("Error getting value", e);
+        throw new Error("Error getting value", e);
       }
     })();
   }, []);
