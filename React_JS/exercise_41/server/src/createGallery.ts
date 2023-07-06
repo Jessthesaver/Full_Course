@@ -66,6 +66,4 @@ function createJSON(fileName: string, totalImages: number): void {
   writeFileSync(fileName, JSON.stringify(createGallery(totalImages)));
 }
 
-// createJSON('Gallery', 5);
-
 export default { fakeDB, createGallery, createJSON };

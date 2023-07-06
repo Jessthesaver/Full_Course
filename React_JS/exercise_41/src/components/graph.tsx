@@ -9,7 +9,6 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import PropTypes from "prop-types";
 
 type GraphProps = {
   data: any[];
@@ -77,9 +76,3 @@ export default function Graph({ data, caption, labels }: GraphProps) {
     </>
   );
 }
-
-Graph.propTypes = {
-  caption: PropTypes.string,
-  data: PropTypes.array,
-  labels: PropTypes.array,
-};

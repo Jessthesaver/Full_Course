@@ -7,7 +7,7 @@ import rootSaga from "../redux/rootSagas";
 import dataReducer from "../redux/slices/dataSlices";
 
 describe("Line chart tests", () => {
-  test("Line graph", () => {
+  test("Should have the line graph be rendered correctly and the canvas mock should be succesfully called", () => {
     const data = [1, 2, 3, 4];
     const labels = ["April", "May", "June", "July"];
     const canvasMock = jest
@@ -26,13 +26,12 @@ describe("Line chart tests", () => {
   });
 });
 
-describe("Checking the sagas", () => {
-  test("Checking init state", () => {
+describe("Check the sagas behavior of the reducer", () => {
+  test("Check the initial state to start empty", () => {
     return expectSaga(rootSaga)
       .withReducer(dataReducer)
       .run()
       .then((result) => {
-        console.log(result.storeState);
         expect(result.storeState).toEqual({
           1: {
             label: [],
