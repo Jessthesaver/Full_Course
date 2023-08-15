@@ -1,7 +1,10 @@
 export default function reverseBlocks(arr: number[], blockSize: number) {
   //arr subdivision in blocks
   if (blockSize > arr.length) {
-    throw new Error("The blocks can´t be larger than the array");
+    console.log(
+      `The block size is bigger than the arr, adjusting to array length`
+    );
+    blockSize = arr.length;
   }
   if (blockSize === 0) {
     throw new Error("The blocks can´t be of size 0");
