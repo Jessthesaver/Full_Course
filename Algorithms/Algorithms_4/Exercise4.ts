@@ -24,7 +24,6 @@ export default function mergeArrays(
     if (smallArrayIndex < 0) break;
     i--;
   }
-  const output = largeArray.filter((element) => element !== undefined);
 
-  return output;
+  return largeArray;
 }
