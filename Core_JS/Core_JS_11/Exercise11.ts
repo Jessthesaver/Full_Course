@@ -6,14 +6,12 @@ export default function querySelectorAll(selector: string) {
   let parents = document.querySelectorAll(parentSelector);
 
   for (const parent of parents) {
-    const children = parent.querySelectorAll(childSelector);
+    const children = parent.querySelectorAll(
+      `${parentSelector} > ${childSelector}`
+    );
 
     for (const child of children) {
-      if (child === null || child.parentElement === null) {
-        break;
-      }
-
-      child.parentElement.dataset.selected = "true" as string;
+      if (child.parentElement) child.parentElement.dataset.selected = "true";
     }
   }
 
