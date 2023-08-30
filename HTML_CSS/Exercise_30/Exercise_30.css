@@ -1,3 +1,15 @@
+:root {
+  box-sizing: border-box;
+  font-size: 1.2em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -7,46 +19,40 @@ body {
   gap: 15px;
   margin: 0;
   padding: 0;
-
-  /* CSS Variables */
-  --buttonWidth: 500px;
-  --buttonHeight: calc(0.18 * var(--buttonWidth));
-  --font: 3.3vw;
+  min-height: 100vh;
 }
 
 .fancy-button {
   display: flex;
+  font-size: 1.6rem;
+  color: #555555;
   align-items: center;
-  inset: 0px 15vw 0px 0px;
-  background-color: rgb(176, 176, 176, 0.75);
-  padding: calc(0.05 * var(--buttonWidth));
-  margin: calc(0.1 * var(--buttonWidth));
-  width: var(--buttonWidth);
-  height: var(--buttonHeight);
+  padding: 0.2em;
+  margin: 4em;
+  width: fit-content;
+
   text-decoration: none;
   text-transform: uppercase;
-  color: rgba(85, 85, 85, 255);
-  border-radius: 9px;
-  box-sizing: border-box;
-  font-size: xx-large;
-  font: 900 var(--font) Verdana, Geneva, Tahoma, sans-serif;
-  outline-offset: 0.85rem;
-  outline: 2px solid rgb(19, 18, 19);
-  border: 2px solid rgba(175, 175, 175, 0.85);
-  /*offset-x | offset-y | blur-radius | spread-radius | color*/
-  box-shadow: 0 0 0 calc(0.11 * var(--buttonHeight)) rgba(151, 151, 151, 0.404),
-    calc(0.03 * var(--buttonHeight)) calc(0.03 * var(--buttonHeight))
-      calc(0.05 * var(--buttonHeight)) calc(0.01 * var(--buttonHeight))
-      rgba(0, 0, 0, 0.55),
-    inset 0 calc(0.46 * var(--buttonHeight)) 0 0 rgb(215, 215, 215);
-  justify-content: center;
+  text-align: center;
+  background: #b7b7b7;
+  text-shadow: white 0 0.7px 0;
+  height: 2.4em;
+
+  line-height: 2.4em;
+  font-weight: bolder;
+  font: bold 1rem sans-serif;
+
+  box-shadow: 0 1px 2px 1px #555555, 0 0 0 0.3em #cbcbcb,
+    0 4px 3px 0px rgba(0, 0, 0, 0.75), inset 0px 1.1em 1px 0 #dadada,
+    0 0 0 calc(0.35em + 2px) white, 0 0 0 calc(0.35em + 4px) #666666;
+  border-radius: 4px;
 }
 
 .fancy-button::before {
   content: "★";
-  font-size: xx-large;
+  font-size: 1.2rem;
   margin: 10px;
-  color: rgba(122, 116, 122, 0.9);
+  color: #888888;
 }
 
 .fancy-button::after {
@@ -56,124 +62,64 @@ body {
   color: rgba(122, 116, 122, 0.9);
 }
 
-form {
-  display: flex;
-  flex-direction: row;
-  margin: 25px;
-  width: 550px;
-  height: 200px;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: calc(0.001 * var(--buttonWidth));
-}
-
-button {
-  position: relative;
-  align-self: center;
-  background-color: rgba(255, 99, 72, 0.9);
-  color: white;
-  border: none;
-  font: 900 calc(0.3 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
-  top: -10%;
-  right: -30%;
-  width: calc(0.3 * var(--buttonWidth));
-  height: calc(0.35 * var(--buttonHeight));
-  border-radius: 50px;
-}
-
-button:hover {
-  cursor: pointer;
+form > label {
+  flex: 0 0 auto;
 }
 
 .form-field {
-  position: relative;
-  top: -3%;
-  width: 200px;
-}
-
-.form-field::before {
-  visibility: visible;
-  display: inline-block;
-  position: absolute;
-  padding: 1px;
-  width: 200px;
-  height: 22px;
-  top: -10px;
-  z-index: 1;
-  background: rgba(0, 0, 0, 255);
-  box-shadow: calc(0.03 * var(--buttonHeight)) calc(0.02 * var(--buttonHeight))
-    calc(0.05 * var(--buttonHeight)) calc(0.01 * var(--buttonHeight))
-    rgba(63, 62, 62, 0.75);
-  content: attr(data-hint);
-  font: calc(0.28 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
-  color: white;
-}
-
-.form-field::after {
-  visibility: visible;
-  display: inline-block;
-  position: absolute;
-  content: ".";
-  background: rgba(0, 0, 0, 255);
-  box-shadow: 3px 2px 5px 1px rgba(63, 62, 62, 0.75);
-  color: white;
-  width: 20px;
-  height: 20px;
-  transform: rotate(45deg);
-  z-index: 0;
-  top: -4px;
-  right: 150px;
-  font-size: 1px;
-}
-
-label {
-  font: 500 calc(0.5 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
+  flex: 1 1 auto;
 }
 
 input {
-  border: none;
-  border-bottom: 1px solid black;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-  font: calc(0.5 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
-  width: 270px;
+  display: block;
+  width: 100%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 2px solid black;
+  height: 100%;
+  font-size: 1rem;
 }
 
-input:focus {
+input:focus,
+input:focus-visible {
   outline: none;
 }
 
-@media (min-width: 1140px) and (max-width: 1435px) {
-  form {
-    display: flex;
-    flex-direction: row;
-    margin: 25px;
-    width: 550px;
-    height: 200px;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: calc(0.05 * var(--buttonWidth));
-  }
-  .form-field::before {
-    font: calc(0.3 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
-  }
+[data-hint]::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  font-size: 0.6rem;
+  top: calc(-32px + 14px);
+  left: 160px;
+  background-color: black;
+  box-shadow: 2px 1px 5px 0.2px rgba(0, 0, 0, 0.75);
+  transform: rotate(45deg);
 }
 
-@media (max-width: 740px) {
-  button {
-    right: -10%;
-  }
-
-  .form-field::before {
-    font: calc(0.5 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
-  }
+[data-hint]::after {
+  content: attr(data-hint);
+  position: absolute;
+  top: -32px;
+  font-size: 0.6rem;
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 2px 1px 5px 0.2px rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.3em;
 }
 
-@media (max-width: 500px) {
-  .form-field::before {
-    font: calc(0.6 * var(--font)) Verdana, Geneva, Tahoma, sans-serif;
-  }
+form > button {
+  width: 100%;
+  flex-grow: 0;
+  margin: 1em 10em;
+  min-width: max-content;
+  width: max-content;
+  background-color: #ff6348;
+  color: white;
+  padding: 0.8em 2em;
+  border-radius: 30px;
+  border: none;
+  font-weight: bold;
 }
