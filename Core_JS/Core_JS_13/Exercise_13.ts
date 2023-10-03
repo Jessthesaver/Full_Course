@@ -35,7 +35,6 @@ function prefixOrder(
   n2: string
 ) {
   const [root, left, right] = tree;
-  // let leftN1, rightN1, leftN2, rightN2;
 
   if (root) {
     if (root === n1 || root === n2) {

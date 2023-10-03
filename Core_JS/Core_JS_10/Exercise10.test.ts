@@ -58,3 +58,13 @@ test("Invalid trees", () => {
   expect(() => printTree("(()()())", "infix")).toThrow(Error);
   expect(() => printTree("(a),()", "infix")).toThrow(Error);
 });
+
+test("Simple expressions", () => {
+  expect(printTree("(a)", "infix")).toStrictEqual(["a"]);
+  expect(printTree("(a,)", "infix")).toStrictEqual(["a"]);
+  expect(printTree("(a,,)", "infix")).toStrictEqual(["a"]);
+  expect(printTree("(a,(b))", "infix")).toStrictEqual(["b", "a"]);
+  expect(printTree("(a,(b),)", "infix")).toStrictEqual(["b", "a"]);
+  expect(printTree("(a,,(c))", "infix")).toStrictEqual(["a", "c"]);
+  expect(printTree("(a,(b),(c))", "infix")).toStrictEqual(["b", "a", "c"]);
+});

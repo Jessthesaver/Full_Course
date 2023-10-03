@@ -27,6 +27,7 @@ export default function printTree(tree: string, order?: string) {
     default:
       array = infixOrder(nodeTree);
   }
+  console.log(array);
   return array;
 }
 
@@ -70,70 +71,62 @@ function prefixOrder(node: null | Node): any[] {
 }
 
 function convertToNode(tree: string): Node | null {
-  if (tree === "" || !/[A-Za-z0-9 -]/.test(tree)) {
-    throwError();
-  }
+  let i = -1;
+  const Start = "(";
+  const End = ")";
+  const separator = ",";
+  if (tree === "") throwError();
 
-  let index = -1;
-
-  const getValue = () => {
-    let value = "";
-    while (tree[index] !== ")" && tree[index] !== ",") {
-      if (tree[index] === "(" || !tree[index]) {
+  function parseNodeVal() {
+    let val = "";
+    while (tree[i] !== separator && tree[i] !== End) {
+      if (tree[i] === Start || tree[i] === undefined) {
         throwError();
       }
-
-      value += tree[index];
-      index++;
+      val += tree[i];
+      i++;
     }
+    return val;
+  }
 
-    return value;
-  };
+  function parseNode(): Node | null {
+    const node = new Node("");
 
-  function createNode(): Node | null {
-    index++;
-    let root;
+    i++;
 
-    if (tree[index] === ")" || tree[index] === ",") {
+    if (tree[i] === separator || tree[i] === End) {
       return null;
-    } else if (tree[index] === "(") {
-      index++;
-      root = new Node(getValue()) as Node;
+    } else if (tree[i] === Start) {
+      i++;
+      node.value = parseNodeVal();
     } else {
       throwError();
     }
-
-    if (tree[index] === ")" && root) {
-      index++;
-      return root;
+    if (tree[i] === End) {
+      i++;
+      return node;
     }
 
-    if (root) root.left = createNode();
+    node.left = parseNode();
 
-    if (tree[index] !== ",") {
-      throwError();
-    } else if (tree[index] === ")" && root) {
-      index++;
-      return root;
+    if (tree[i] === End) {
+      i++;
+      return node;
     }
-
-    if (root) root.right = createNode();
-    if (tree[index] !== ")") {
+    node.right = parseNode();
+    if (tree[i] !== End) {
       throwError();
     }
-
-    index++;
-
-    if (root) return root;
-    return null;
+    i++;
+    return node;
   }
 
-  const bTree = createNode();
-  if (tree[index]) {
+  const treeOutput = parseNode();
+
+  if (tree[i] !== undefined) {
     throwError();
   }
-
-  return bTree;
+  return treeOutput;
 }
 
 const throwError = () => {

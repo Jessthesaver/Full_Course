@@ -48,7 +48,7 @@ const Gallery: FunctionComponent<Props> = ({ id, count }) => {
   if (isLoading) {
     content = <div>Loading...</div>;
   } else if (isError) {
-    content = <div>{"Something went wrong ):"}</div>;
+    content = <div>Something went wrong</div>;
   } else if (isSuccess) {
     content = <GalleryImages images={data.images} />;
   }
