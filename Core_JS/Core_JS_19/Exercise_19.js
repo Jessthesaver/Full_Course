@@ -1,5 +1,3 @@
-const { resolve } = require("path");
-
 (function (global) {
   let originalSetTimeout = global.setTimeout;
   let root = document.getElementById("results");
