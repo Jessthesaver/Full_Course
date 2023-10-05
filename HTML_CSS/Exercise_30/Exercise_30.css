@@ -10,64 +10,29 @@
   box-sizing: inherit;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-  align-items: center;
-  font-size: 3.3vw;
-  gap: 15px;
+* {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
 }
 
-.fancy-button {
-  display: flex;
-  font-size: 1.6rem;
-  color: #555555;
-  align-items: center;
-  padding: 0.2em;
+form {
   margin: 4em;
-  width: fit-content;
-
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-  background: #b7b7b7;
-  text-shadow: white 0 0.7px 0;
-  height: 2.4em;
-
-  line-height: 2.4em;
-  font-weight: bolder;
-  font: bold 1rem sans-serif;
-
-  box-shadow: 0 1px 2px 1px #555555, 0 0 0 0.3em #cbcbcb,
-    0 4px 3px 0px rgba(0, 0, 0, 0.75), inset 0px 1.1em 1px 0 #dadada,
-    0 0 0 calc(0.35em + 2px) white, 0 0 0 calc(0.35em + 4px) #666666;
-  border-radius: 4px;
-}
-
-.fancy-button::before {
-  content: "★";
-  font-size: 1.2rem;
-  margin: 10px;
-  color: #888888;
-}
-
-.fancy-button::after {
-  content: "★";
-  font-size: xx-large;
-  margin: 5px;
-  color: rgba(122, 116, 122, 0.9);
+  display: flex;
+  flex-flow: row wrap;
+  min-width: 20em;
+  max-width: 30em;
+  position: relative;
+  justify-content: center;
 }
 
 form > label {
   flex: 0 0 auto;
+  /* min-width: 50%; */
 }
 
 .form-field {
   flex: 1 1 auto;
+  /* filter: drop-shadow(-1px 6px 3px red); */
 }
 
 input {
@@ -96,6 +61,7 @@ input:focus-visible {
   left: 160px;
   background-color: black;
   box-shadow: 2px 1px 5px 0.2px rgba(0, 0, 0, 0.75);
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 21% 73%, 15% 99%, 9% 74%, 0 73%); */
   transform: rotate(45deg);
 }
 
@@ -109,9 +75,12 @@ input:focus-visible {
   color: white;
   padding: 0.3em;
 }
+/* padding-bottom: 1em; */
+/* clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 21% 73%, 15% 99%, 9% 74%, 0 73%); */
 
 form > button {
   width: 100%;
+  /* flex-basis: 100%; */
   flex-grow: 0;
   margin: 1em 10em;
   min-width: max-content;
@@ -122,4 +91,66 @@ form > button {
   border-radius: 30px;
   border: none;
   font-weight: bold;
+}
+
+.fancy-button::before {
+  font-size: 1.2rem;
+  content: "★";
+  color: #888888;
+  margin-right: 0.2em;
+}
+
+/*☆★✭✰*/
+.fancy-button::after {
+  font-size: 1.2rem;
+  content: "★";
+  color: #888888;
+  margin-left: 0.2em;
+}
+
+.body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* .fancy-button {
+  display: block;
+  font-size: 1.6rem;
+  color: gray;
+  border: gray thick;
+  border-style: double;
+  border-radius: 14px;
+  
+} */
+
+/* basic styling */
+.fancy-button {
+  display: block;
+  font-size: 1.6rem;
+  color: #eeeeee;
+  padding: 0.2em;
+  margin: 4em;
+  width: fit-content;
+}
+
+/* text properties */
+.fancy-button {
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  color: #555555;
+  background: #b7b7b7;
+  text-shadow: white 0 0.7px 0;
+  height: 2.4em;
+  line-height: 2.4em;
+  font-weight: bolder;
+  font: bold 1rem sans-serif;
+}
+
+.fancy-button {
+  box-shadow: 0 1px 2px 1px #555555, 0 0 0 0.3em #cbcbcb,
+    0 4px 3px 0px rgba(0, 0, 0, 0.75), inset 0px 1.1em 1px 0 #dadada,
+    0 0 0 calc(0.35em + 2px) white, 0 0 0 calc(0.35em + 4px) #666666;
+  border-radius: 4px;
 }
