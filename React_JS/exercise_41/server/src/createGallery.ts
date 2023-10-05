@@ -39,7 +39,6 @@ function createImageList(
 }
 
 function createGallery(totalImages: number, galleryId: string = "1") {
-  // const galleryId = Date.now();
   return {
     galleryId,
     images: createImageList(totalImages),

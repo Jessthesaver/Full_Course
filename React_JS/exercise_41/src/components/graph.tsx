@@ -11,12 +11,18 @@ import {
 import { Line } from "react-chartjs-2";
 
 type GraphProps = {
+  titleText: string;
   data: any[];
   caption: string;
   labels: string[];
 };
 
-export default function Graph({ data, caption, labels }: GraphProps) {
+export default function Graph({
+  titleText,
+  data,
+  caption,
+  labels,
+}: GraphProps) {
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -53,7 +59,7 @@ export default function Graph({ data, caption, labels }: GraphProps) {
       },
       title: {
         display: true,
-        text: "Chart.js Line Chart",
+        text: titleText,
       },
     },
   };

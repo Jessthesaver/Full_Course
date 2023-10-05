@@ -19,7 +19,14 @@ describe("Line chart tests", () => {
         stroke: jest.fn(),
       } as any);
 
-    render(<Graph data={data} caption="Caption" labels={labels} />);
+    render(
+      <Graph
+        titleText="Chart Line Chart"
+        data={data}
+        caption="Caption"
+        labels={labels}
+      />
+    );
 
     expect(canvasMock).toHaveBeenCalled();
     expect(screen.getByRole("img")).toBeInTheDocument();
