@@ -12,29 +12,33 @@ type GalleryCollection = {
   images: Image[];
 };
 
+function createImage(): Image {
+  const width = faker.datatype.number({
+    min: 150,
+    max: 450,
+  });
+  const height = faker.datatype.number({
+    min: 150,
+    max: 450,
+  });
+  return {
+    width,
+    height,
+    src: faker.image.imageUrl(width, height),
+  };
+}
+
 function getRandomNumber(max: number, min: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function createImageList(
-  totalImages: number,
-  max: number = 250 * 4,
-  min: number = 250
-): Image[] {
+function createImageList(totalImages: number): Image[] {
   const imageList: Image[] = [];
 
   let i = 0;
 
   while (i < totalImages) {
-    const width = getRandomNumber(max, min);
-    const height = getRandomNumber(max, min);
-    const img = {
-      width,
-      height,
-      src: faker.image.cats(width, height),
-    };
-
-    imageList.push(img);
+    imageList.push(createImage());
     i++;
   }
 
