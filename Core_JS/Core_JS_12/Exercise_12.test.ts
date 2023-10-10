@@ -1,7 +1,7 @@
-const isSymmetric = require("./Exercise_12");
+import isSymmetric from "./Exercise_12";
 
 test("Symmetric", () => {
-  const bTree = "(1,(2,(3),(4,(5))),(2,(3),(4,(5))))";
+  const bTree = "(1,(2,(3),(4)),(2,(4),(3)))";
 
   const output = isSymmetric(bTree);
 
@@ -9,7 +9,7 @@ test("Symmetric", () => {
 });
 
 test("Another case", () => {
-  const bTree = "(A,(B,(X)),(B,(X)))";
+  const bTree = "(A,(B),(B))";
 
   const output = isSymmetric(bTree);
 
@@ -20,7 +20,6 @@ test("Not symmetric", () => {
   const bTree = "(A,(B,(D),(E)),(C,(F,(H),(I)),(G,,(J))))";
 
   const out = isSymmetric(bTree);
-  console.log(out);
 
   expect(out).toBe(false);
 });

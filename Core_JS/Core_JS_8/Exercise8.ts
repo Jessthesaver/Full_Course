@@ -17,9 +17,10 @@ const oldObj = {
 
 export function flattenImp(oldObj: any, parentName: string) {
   /* Your implementation goes here */
-  let outputObj = {};
+  let outputObj = {} as Object;
+  type T = keyof typeof outputObj;
   for (let key in oldObj) {
-    const newKey = parentName ? `${parentName}_${key}` : (key as string);
+    const newKey = (parentName ? `${parentName}_${key}` : key) as string;
 
     if (
       typeof oldObj[key] === "object" &&
@@ -28,7 +29,7 @@ export function flattenImp(oldObj: any, parentName: string) {
     ) {
       outputObj = { ...outputObj, ...flattenImp(oldObj[key], newKey) };
     } else {
-      outputObj[newKey] = oldObj[key];
+      outputObj[newKey as keyof typeof outputObj] = oldObj[key];
     }
   }
   return outputObj;
@@ -38,12 +39,13 @@ export function flattenFunc(obj: any, parentName = "") {
   const isObject = (instance: string) => typeof instance === "object";
   const isArray = (instance: string) => Array.isArray(instance);
 
-  const newObj = Object.keys(obj).reduce((acc, i) => {
+  const newObj = Object.keys(obj).reduce((acc: any, i) => {
+    type T = keyof typeof acc;
     const prefixKey = parentName.length ? `${parentName}_` : ``;
     if (isObject(obj[i]) && !isArray(obj[i]) && obj[i] !== null) {
       Object.assign(acc, flattenFunc(obj[i], prefixKey + i));
     } else {
-      acc[`${prefixKey}${i}`] = obj[i];
+      acc[`${prefixKey}${i}` as keyof typeof acc] = obj[i];
     }
     return acc;
   }, {});

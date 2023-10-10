@@ -1,4 +1,4 @@
-const isSameLevel = require("./Exercise_13");
+import isSameLevel from "./Exercise_13";
 
 test("Initial test of the algorithm", () => {
   const bTree = "(1,(2,(3),(4,(5))),(6,(7),(8,(9))))";

@@ -27,7 +27,7 @@ export default function printTree(tree: string, order?: string) {
     default:
       array = infixOrder(nodeTree);
   }
-  console.log(array);
+
   return array;
 }
 

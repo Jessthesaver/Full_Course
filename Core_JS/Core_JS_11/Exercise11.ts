@@ -1,11 +1,12 @@
 export default function querySelectorAll(selector: string) {
   const [parentSelector, childSelector] = selector.split("<");
 
-  if (childSelector === null) return document.querySelectorAll(parentSelector);
+  if (childSelector === null || childSelector === undefined)
+    return document.querySelectorAll(parentSelector);
 
   let parents = document.querySelectorAll(parentSelector);
 
-  parents.forEach((parent) => {
+  parents.forEach((parent: any) => {
     const children = [
       ...parent.querySelectorAll(`${parentSelector} > ${childSelector}`),
     ];
@@ -21,7 +22,7 @@ export default function querySelectorAll(selector: string) {
     "[data-selected-new-query-selector-all]"
   );
 
-  output.forEach((el) => {
+  output.forEach((el: any) => {
     delete el.dataset["selectedNewQuerySelectorAll"];
   });
   return output;

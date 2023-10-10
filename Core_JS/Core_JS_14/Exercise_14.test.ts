@@ -1,4 +1,4 @@
-const maxRectangle = require("./Exercise_14");
+import maxRectangle from "./Exercise_14";
 
 describe("Simple test cases", () => {
   test("An empty matrix", () => {

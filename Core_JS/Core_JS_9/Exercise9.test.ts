@@ -21,7 +21,7 @@ test("An array with empty spaces", () => {
     1,
     2,
     3,
-    "",
+    undefined,
     4,
     5,
     6,

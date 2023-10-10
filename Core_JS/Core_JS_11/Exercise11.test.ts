@@ -3,7 +3,7 @@
 import querySelectorAll from "./Exercise11";
 
 document.body.innerHTML = `
-    <section>
+    <section id="parent">
         <div id="1" class="note"><input type="checkbox" class="is-complete" checked> </div>
         <div id="2" class="note"></div>
         <div id="3" class="note"><input type="checkbox" class="is-complete" checked></div>
@@ -26,7 +26,6 @@ test("initial test", () => {
     nodeIds.push(element.id);
     parentElement.push(element.parentElement?.id);
   }
-  console.log(parentElement);
 
   expect(innerChild).toEqual([
     '<input type="checkbox" class="is-complete" checked=""> ',
@@ -35,4 +34,16 @@ test("initial test", () => {
   ]);
   expect(nodeIds).toEqual(["1", "3", "5"]);
   expect(parentElement).toEqual(["parent", "parent", "parent"]);
+});
+
+test("test with no child selector", () => {
+  const nodeIds = [];
+
+  const nodeList = querySelectorAll("div.note");
+
+  for (const element of nodeList) {
+    nodeIds.push(element.id);
+  }
+
+  expect(nodeIds).toEqual(["1", "2", "3", "4", "5", "6"]);
 });
